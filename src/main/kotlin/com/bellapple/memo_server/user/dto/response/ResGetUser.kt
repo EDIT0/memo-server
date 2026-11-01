@@ -1,0 +1,26 @@
+package com.bellapple.memo_server.user.dto.response
+
+import com.bellapple.memo_server.user.User
+import java.time.Instant
+
+// 유저 상세 조회 응답 (password는 응답에 넣지 않음)
+data class ResGetUser(
+    val id: Long,
+    val username: String,
+    val email: String,
+    val createAt: Instant,
+    val updateAt: Instant
+) {
+    companion object {
+        // Entity -> 응답 DTO
+        fun from(user: User): ResGetUser {
+            return ResGetUser(
+                id = user.id!!,
+                username = user.username,
+                email = user.email,
+                createAt = user.createdAt,
+                updateAt = user.updatedAt
+            )
+        }
+    }
+}
