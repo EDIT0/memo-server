@@ -1,6 +1,8 @@
 package com.bellapple.memo_server.user
 
 import com.bellapple.memo_server.memo.MemoRepository
+import com.bellapple.memo_server.profileimage.ProfileImageService
+import com.bellapple.memo_server.user.table.User
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -11,7 +13,8 @@ import org.springframework.web.server.ResponseStatusException
 @Transactional // EntityManager는 트랜잭션 안에서만 저장·삭제 가능
 class UserService(
     private val userRepository: UserRepository,
-    private val memoRepository: MemoRepository // 유저 삭제 시 그 유저의 메모도 지우기 위해 사용
+    private val memoRepository: MemoRepository, // 유저 삭제 시 그 유저의 메모도 지우기 위해 사용
+    private val profileImageService: ProfileImageService // 유저 삭제 시 프로필 사진도 지우기 위해 사용
 ) {
     fun createUser(username: String, email: String, password: String): User {
         // 이미 있는 username·email이면 409 Conflict로 응답
@@ -50,6 +53,7 @@ class UserService(
     fun deleteUser(id: Long) {
         val user = findUser(id)
         memoRepository.deleteAllByUserId(id) // 메모가 유저를 참조하고 있어서 메모를 먼저 지워야 함
+        profileImageService.deleteProfileImageIfExists(id) // 프로필 사진도 유저를 참조하고 있어서 먼저 지움
         userRepository.delete(user)
     }
 

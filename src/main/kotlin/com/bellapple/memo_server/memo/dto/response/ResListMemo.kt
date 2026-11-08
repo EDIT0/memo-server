@@ -1,6 +1,6 @@
 package com.bellapple.memo_server.memo.dto.response
 
-import com.bellapple.memo_server.memo.Memo
+import com.bellapple.memo_server.memo.table.Memo
 import java.time.Instant
 
 // 메모 목록의 한 항목 응답

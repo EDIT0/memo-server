@@ -1,6 +1,6 @@
 package com.bellapple.memo_server.user.dto.response
 
-import com.bellapple.memo_server.user.User
+import com.bellapple.memo_server.user.table.User
 import java.time.Instant
 
 // 유저 목록의 한 항목 응답 (password는 응답에 넣지 않음)

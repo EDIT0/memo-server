@@ -1,5 +1,7 @@
 package com.bellapple.memo_server.memo
 
+import com.bellapple.memo_server.memo.table.Memo
+
 // 무엇을 할 수 있는지만 정의. Service는 이 interface에만 의존
 interface MemoRepository {
     fun save(memo: Memo): Memo

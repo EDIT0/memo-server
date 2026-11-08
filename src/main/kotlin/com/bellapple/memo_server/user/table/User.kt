@@ -1,4 +1,4 @@
-package com.bellapple.memo_server.user
+package com.bellapple.memo_server.user.table
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity

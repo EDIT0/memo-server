@@ -1,5 +1,6 @@
 package com.bellapple.memo_server.memo
 
+import com.bellapple.memo_server.memo.table.Memo
 import com.bellapple.memo_server.user.UserService
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service

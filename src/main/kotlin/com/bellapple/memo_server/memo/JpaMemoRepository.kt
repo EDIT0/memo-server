@@ -1,5 +1,6 @@
 package com.bellapple.memo_server.memo
 
+import com.bellapple.memo_server.memo.table.Memo
 import jakarta.persistence.EntityManager
 import org.springframework.stereotype.Repository
 

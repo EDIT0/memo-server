@@ -1,6 +1,6 @@
-package com.bellapple.memo_server.memo
+package com.bellapple.memo_server.memo.table
 
-import com.bellapple.memo_server.user.User
+import com.bellapple.memo_server.user.table.User
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
